@@ -63,9 +63,14 @@ function filtrerDate($liniouySeet,$tableauBiniouKayWeur){
 
 $donnee = $datas;
 
+if(isset($_POST["libelle"])){
+    $donnee = filtrerLibelle($_POST["libelle"],$datas);
+}
 if(isset($_POST["category"])){
-    $donnee = filtrerLibelle($_POST["category"],$datas);
+    $donnee = filtrerCategory($_POST["category"],$donnee);
 }
 
-
+if(isset($_POST["year"])){
+    $donnee = filtreryear($_POST["year"],$donnee);
+}
 include 'lister.php';
